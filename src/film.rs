@@ -48,9 +48,9 @@ impl Film {
         for y in 0..self.resolution.1 {
             for x in 0..self.resolution.0 {
                 let ray = camera.create_ray(x, y);
-                let i = scene.intersect(&ray);
+                let c = scene.intersect(&ray);
                 // NOTE: u32 fits into usize
-                self.plane[y as usize][x as usize] = i.colour.clone();
+                self.plane[y as usize][x as usize] = c;
             }
         }
 

@@ -1,5 +1,12 @@
-use glm::Vector2;
+use glm::Vector3;
 
+// simple point light
 pub struct Light {
-    //pub pos: glm::Vector2<Float>,
+    pos: glm::Vector3<f32>,
+}
+
+impl Light {
+    pub fn new(pos: glm::Vector3<f32>) -> Light {
+        Light { pos: pos }
+    }
 }

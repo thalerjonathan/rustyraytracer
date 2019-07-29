@@ -1,9 +1,12 @@
 mod camera;
 mod colour;
 mod film;
+mod intersection;
 mod light;
+mod material;
 mod ray;
 mod scene;
+mod sphere;
 
 fn main() {
     let filename = "image.png";
