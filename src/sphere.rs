@@ -20,6 +20,7 @@ impl Sphere {
 
     pub fn intersect(&self, ray: &ray::Ray) -> Option<intersection::Intersection> {
         // TODO: implement ray-sphere intersection
+        
         None
     }
 }
