@@ -4,6 +4,9 @@ use crate::ray;
 pub struct Camera {
     view: glm::Matrix4<f32>,    // viewing transformation
     proj: glm::Matrix4<f32>,    // projection transformation
+  
+    rasterToScreen: glm::Matrix4<f32>,
+    screenToRaster: glm::Matrix4<f32>,
 }
 
 impl Camera {
@@ -20,13 +23,21 @@ impl Camera {
     }
 
     // create a ray with the given offset on the image plane into the world
-    // x and y start with 0, top left corner of the plane
-    pub fn create_ray(&self, _x: u32, _y: u32) -> ray::Ray {
+    // x and y are raster coordinates (pixels), starting top left of the image 
+    // plane with 0/0 (pixels)
+    pub fn create_ray(&self, x: u32, y: u32) -> ray::Ray {
         // TODO: transform the x, y coordinates of the image plane into the 
         // 3d viewing coordinates
+        let rc = vec4(x as f32, y as f32, 1., 0.);
 
-        // TODO: problem, x and y are in pixel coordinates, how do we get
-        // the world coordinates? using inversion of viewing and projection transform
+        // tansform raster coordinates into screen coordinates ranging
+        // from 0 to 1 in both dimensions
+
+        // transform screen coordinates into NDC (normalised device coordinates)
+        // ranging from -1 to +1 in all 3 dimensions
+
+        // TODO: it is unclear what we need to do, look at PBRT camera model
+        // we basically need to do the inverse of an OpenGL viewing pipeline
 
         let start = glm::vec3(0.,0.,0.);
         let direction = glm::vec3(0., 0., 0.);

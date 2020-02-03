@@ -68,6 +68,7 @@ impl Scene {
                         // TODO: add up colors to c
                     }
 
+                    // TODO: shoot ray to each light
                     c
                 }
                 None => self.background.clone(),
